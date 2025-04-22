@@ -1,4 +1,5 @@
 #include <iostream>
+using namespace std;
 
 // Tamaño fijo del tablero
 const int FILAS = 5;
@@ -76,7 +77,6 @@ int contarMinas(int* grid) {
 }
 
 int main() {
-    // Definimos el tablero (matriz con 1s y 0s)
     int grid[FILAS][COLUMNAS] = {
         {1, 0, 0, 1, 1, 0},
         {1, 0, 1, 0, 1, 0},
@@ -85,11 +85,18 @@ int main() {
         {0, 0, 0, 0, 0, 0}
     };
 
-    // Contamos la cantidad de minas
-    int cantidad = contarMinas((int*)grid);
+    cout << "Matriz del buscaminas:" << endl;
+    for (int i = 0; i < FILAS; i++) {
+        for (int j = 0; j < COLUMNAS; j++) {
+            cout << grid[i][j] << " ";
+        }
+        cout << endl;
+    }
 
-    // Mostramos el resultado
-    std::cout << "Cantidad de minas: " << cantidad << std::endl;
+    // Mostrar la cantidad de minas
+    int cantidad = contarMinas((int*)grid);
+    cout << endl;
+    cout << "Cantidad de minas: " << cantidad << endl;
 
     return 0;
 }
